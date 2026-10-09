@@ -1,0 +1,18 @@
+# Just Puzzles
+
+> Free logic puzzles to play in the browser, by Kai Kunze. Every board has exactly one solution, proved before it is served, and never needs a guess. No account, no ads, no tracking; boards are saved in the browser only. The same puzzle engines run in the Just Puzzles apps, and a daily puzzle is the same on the site and in the apps.
+
+## Games
+
+- [Kakuro](https://justpuzzles.app/kakuro/): Every run of white cells adds up to its clue, and no digit repeats inside a run. Also known as Cross Sums.
+- [Shikaku](https://justpuzzles.app/shikaku/): Carve the grid into rectangles. Every rectangle holds exactly one number, and that number is its area. Also known as Rectangles.
+- [Hashi](https://justpuzzles.app/hashi/): Join the islands with bridges that run straight and never cross. At most two between any pair, each island carries exactly its number, and everything ends up connected. Also known as Hashiwokakero or Bridges.
+- [Keisan](https://justpuzzles.app/numeriqo/): Fill the grid so no digit repeats in a row or column, and every cage reaches its target with its operation. Also known as Calcudoku or Mathdoku.
+- [Nurikabe](https://justpuzzles.app/nurikabe/): Shade the sea. Each number sits on an island of exactly that size, the sea is one connected body, and it never fills a 2×2 block. Also known as Islands in the Stream.
+- [Takegaki](https://justpuzzles.app/takegaki/): Draw a single closed fence along the lattice. Each number counts how many of its four sides the fence uses. Also known as Fences or Loop the Loop.
+- [Masyu](https://justpuzzles.app/masyu/): Draw one loop through every pearl. It runs straight through a white pearl and turns beside it; it turns on a black pearl and runs straight on both sides. Also known as Pearl puzzle.
+
+## About
+
+- [About this site](https://justpuzzles.app/about/): who makes it and how it relates to the apps.
+- [Privacy](https://justpuzzles.app/privacy/): nothing is collected; progress stays in the browser.
