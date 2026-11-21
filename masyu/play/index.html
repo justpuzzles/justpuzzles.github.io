@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<link rel="icon" href="../../icon.svg" type="image/svg+xml" />
+		<link rel="manifest" href="../../manifest.webmanifest" />
+		<link rel="apple-touch-icon" href="../../icon-192.png" />
+		<meta name="theme-color" content="#e8e7e1" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#1b1c1d" media="(prefers-color-scheme: dark)" />
+		<!-- Before the first paint: the street's sky for this hour (site/sky.ts, which
+		     sky.test.ts holds this copy to), and whether today's sway has played. -->
+		<script>
+			(() => {
+				const d = new Date();
+				const doy = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
+				const swing = 1.25 * Math.cos((2 * Math.PI * (doy - 172)) / 365);
+				const set = 17.75 + swing;
+				const rise = 5.6 - swing;
+				const h = d.getHours() + d.getMinutes() / 60;
+				document.documentElement.dataset.sky =
+					h >= rise - 0.75 && h < rise + 0.75
+						? 'dawn'
+						: h >= rise + 0.75 && h < set - 1.25
+							? 'day'
+							: h >= set - 1.25 && h < set
+								? 'golden'
+								: h >= set && h < set + 1
+									? 'dusk'
+									: 'night';
+				try {
+					const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+					if (localStorage.getItem('street.swayed') === day)
+						document.documentElement.dataset.swayed = '';
+				} catch {}
+			})();
+		</script>
+		<link href="../../_app/immutable/entry/start.C4Qe8y6_.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/payload.DSmR2FwN.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BaNbYf_w.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/mCYarlsd.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/C0ebzSog.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/c-OWawv7.js" rel="modulepreload">
+		<link href="../../_app/immutable/entry/app.C12vTLos.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/0.B7YyF8WG.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
+		<link href="../../_app/immutable/nodes/7.ClKIZYdr.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/DszSLjHQ.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/p55Mk47K.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/BQooTMTs.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/C0cw1VRu.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CyU6eSfR.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/CijiYNUK.js" rel="modulepreload">
+		<link href="../../_app/immutable/chunks/D79YFZhA.js" rel="modulepreload">
+		<!--1tqushu--><meta name="description" content="Draw one loop through every pearl. It runs straight through a white pearl and turns beside it; it turns on a black pearl and runs straight on both sides."/> <link rel="canonical" href="https://justpuzzles.app/masyu/play/"/> <!--[0--><meta name="robots" content="noindex"/><!--]--> <!--[-1--><!--]--> <meta property="og:site_name" content="Just Puzzles"/> <meta property="og:locale" content="en"/> <meta property="og:type" content="website"/> <meta property="og:title" content="Just Masyu: Masyu"/> <meta property="og:description" content="Draw one loop through every pearl. It runs straight through a white pearl and turns beside it; it turns on a black pearl and runs straight on both sides."/> <meta property="og:url" content="https://justpuzzles.app/masyu/play/"/> <meta property="og:image" content="https://justpuzzles.app/og/masyu.png"/> <meta property="og:image:width" content="1200"/> <meta property="og:image:height" content="630"/> <meta property="og:image:alt" content="Just Masyu. Draw one loop through every pearl. It runs straight through a white pearl and turns beside it; it turns on a black pearl and runs straight on both sides."/> <meta name="twitter:card" content="summary_large_image"/> <!----><!----><!----><title>Just Masyu: Masyu</title>
+		<link href="../../_app/immutable/assets/0.B710XZHr.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/stamps.BW8yk3G4.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/Goban.nELfiKuj.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/Lantern.Dh6857v_.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/PlayLayout.Cq-xCYLd.css" rel="stylesheet">
+		<link href="../../_app/immutable/assets/7.CkrbHu3T.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><!----> <div class="goban svelte-90ecab" style="--board-w: min(100%, calc(100dvh - 15rem))"><div class="cloth-backdrop svelte-90ecab" style="view-transition-name: cloth-masyu" aria-hidden="true"></div> <main class="svelte-90ecab"><header class="svelte-90ecab"><a href="../../masyu/" class="svelte-90ecab">Masyu</a> <h1 class="svelte-90ecab">Masyu</h1> <span class="clock svelte-90ecab" role="timer" aria-label="Time"></span></header> <!--[-1--><p class="about svelte-90ecab">Setting the stones…</p> <div class="board svelte-90ecab"><div class="placeholder svelte-90ecab" aria-hidden="true"><div class="loading svelte-90ecab"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[-1--><path pathLength="1" class="thin svelte-12i36vg" d="M8 22h84M8 50h84M8 78h84M22 8v84M50 8v84M78 8v84"></path><path pathLength="1" class="heavy svelte-12i36vg" d="M22 78V22h56v28H50v28z"></path><circle pathLength="1" class="solid svelte-12i36vg" cx="22" cy="22" r="10"></circle><circle pathLength="1" class="hollow svelte-12i36vg" cx="78" cy="36" r="10"></circle><circle pathLength="1" class="hollow svelte-12i36vg" cx="36" cy="78" r="10"></circle><!--]--></svg><!----></div></div></div><!--]--></main></div><!----><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_r9mg8i = {
+						base: new URL("../..", location).pathname.slice(0, -1),
+						version: "1795268389571"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					import("../../_app/immutable/entry/start.C4Qe8y6_.js").then(async (kit) => {
+						kit.init(__sveltekit_r9mg8i);
+						const app = await import("../../_app/immutable/entry/app.C12vTLos.js");
+						kit.start(app, element, {
+							node_ids: [0, 7],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+
+					if ('serviceWorker' in navigator) {
+						const script_url = '../../service-worker.js';
+						const policy = globalThis?.window?.trustedTypes?.createPolicy(
+							'sveltekit-trusted-url',
+							{ createScriptURL(url) { return url; } }
+						);
+						const sanitised = policy?.createScriptURL(script_url) ?? script_url;
+						addEventListener('load', function () {
+							navigator.serviceWorker.register(sanitised, { type: 'module' });
+						});
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>

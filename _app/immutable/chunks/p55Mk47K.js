@@ -1,0 +1,1 @@
+function e(){let e=crypto.getRandomValues(new Uint32Array(2));return(BigInt(e[0])<<32n|BigInt(e[1])).toString()}export{e as t};

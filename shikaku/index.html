@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<link rel="icon" href="../icon.svg" type="image/svg+xml" />
+		<link rel="manifest" href="../manifest.webmanifest" />
+		<link rel="apple-touch-icon" href="../icon-192.png" />
+		<meta name="theme-color" content="#e8e7e1" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#1b1c1d" media="(prefers-color-scheme: dark)" />
+		<!-- Before the first paint: the street's sky for this hour (site/sky.ts, which
+		     sky.test.ts holds this copy to), and whether today's sway has played. -->
+		<script>
+			(() => {
+				const d = new Date();
+				const doy = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
+				const swing = 1.25 * Math.cos((2 * Math.PI * (doy - 172)) / 365);
+				const set = 17.75 + swing;
+				const rise = 5.6 - swing;
+				const h = d.getHours() + d.getMinutes() / 60;
+				document.documentElement.dataset.sky =
+					h >= rise - 0.75 && h < rise + 0.75
+						? 'dawn'
+						: h >= rise + 0.75 && h < set - 1.25
+							? 'day'
+							: h >= set - 1.25 && h < set
+								? 'golden'
+								: h >= set && h < set + 1
+									? 'dusk'
+									: 'night';
+				try {
+					const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+					if (localStorage.getItem('street.swayed') === day)
+						document.documentElement.dataset.swayed = '';
+				} catch {}
+			})();
+		</script>
+		<link href="../_app/immutable/entry/start.C4Qe8y6_.js" rel="modulepreload">
+		<link href="../_app/immutable/entry/payload.DSmR2FwN.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BaNbYf_w.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/mCYarlsd.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/C0ebzSog.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/c-OWawv7.js" rel="modulepreload">
+		<link href="../_app/immutable/entry/app.C12vTLos.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/0.B7YyF8WG.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/3.6mKJZsjj.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/DszSLjHQ.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/p55Mk47K.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BQooTMTs.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/C0cw1VRu.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/7hH7k1zt.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BLnTfkWo.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/Dj-8XG1E.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/jPiVIS_o.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CyU6eSfR.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/D2WBfrP5.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CcEfN7V5.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CTpzbiFm.js" rel="modulepreload">
+		<!--1tqushu--><meta name="description" content="Play Shikaku free in your browser: a daily room and new rooms at every difficulty. Carve the grid into rectangles, one number in each. Also known as Rectangles."/> <link rel="canonical" href="https://justpuzzles.app/shikaku/"/> <!--[-1--><!--]--> <!--[0--><meta name="apple-itunes-app" content="app-id=6801529551"/><!--]--> <meta property="og:site_name" content="Just Puzzles"/> <meta property="og:locale" content="en"/> <meta property="og:type" content="website"/> <meta property="og:title" content="Shikaku puzzles online, free · Just Shikaku"/> <meta property="og:description" content="Play Shikaku free in your browser: a daily room and new rooms at every difficulty. Carve the grid into rectangles, one number in each. Also known as Rectangles."/> <meta property="og:url" content="https://justpuzzles.app/shikaku/"/> <meta property="og:image" content="https://justpuzzles.app/og/shikaku.png"/> <meta property="og:image:width" content="1200"/> <meta property="og:image:height" content="630"/> <meta property="og:image:alt" content="Just Shikaku. Carve the grid into rectangles. Every rectangle holds exactly one number, and that number is its area."/> <meta name="twitter:card" content="summary_large_image"/> <!----><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["VideoGame","WebApplication"],"name":"Just Shikaku","alternateName":["Rectangles"],"url":"https://justpuzzles.app/shikaku/","description":"Carve the grid into rectangles. Every rectangle holds exactly one number, and that number is its area.","image":"https://justpuzzles.app/og/shikaku.png","genre":"Puzzle","applicationCategory":"GameApplication","operatingSystem":"Any","gamePlatform":"Web browser","playMode":"SinglePlayer","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Kai Kunze"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I ever have to guess in Shikaku?","acceptedAnswer":{"@type":"Answer","text":"No. Every room is proved to have exactly one solution before it reaches you, and each step can be reasoned out."}},{"@type":"Question","name":"Is Shikaku free to play here?","acceptedAnswer":{"@type":"Answer","text":"Yes. Today's room and new 5×5 and 7×7 rooms at every difficulty are free, with no account and no ads. The 10×10 and 12×12 rooms, the lessons, the drills and the hints are in Just Shikaku, the app."}},{"@type":"Question","name":"Is today's room the same as in the app?","acceptedAnswer":{"@type":"Answer","text":"Yes. The daily room is made from the date, so this site and the app serve the same one."}}]}]}</script><!----><!----><title>Shikaku puzzles online, free · Just Shikaku</title>
+		<link href="../_app/immutable/assets/0.B710XZHr.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/stamps.BW8yk3G4.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/cloth.CkHORVAO.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/game.Gdy_6Bp8.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/game.DVpsGMIn.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Goban.nELfiKuj.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/game.BWvHhVnU.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/game.CcTSazRz.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/3.E9GUcVuY.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><!----> <!--[0--><div class="tatami"><div class="cloth-backdrop" style="view-transition-name: cloth-shikaku" aria-hidden="true"></div> <main class="game-home"><a class="back" href="../">Just Puzzles</a> <header class="hero"><span class="lettering vertical" lang="ja" aria-hidden="true" style="view-transition-name: letter-shikaku">四角</span> <div class="sign"><h1>Just Shikaku</h1> <p class="rule">Carve the grid into rectangles. Every rectangle holds exactly one number, and that number is its area.</p></div> <figure class="example"><svg viewBox="-4 -4 508 508" role="img" aria-label="A finished 5 by 5 room" class="svelte-capxo7"><rect class="ex-floor svelte-capxo7" width="500" height="500"></rect><!--[--><rect class="ex-mat svelte-capxo7" x="6" y="6" width="188" height="288"></rect><rect class="ex-mat svelte-capxo7" x="206" y="6" width="88" height="488"></rect><rect class="ex-mat svelte-capxo7" x="306" y="6" width="188" height="88"></rect><rect class="ex-mat svelte-capxo7" x="306" y="106" width="188" height="388"></rect><rect class="ex-mat svelte-capxo7" x="6" y="306" width="188" height="188"></rect><!--]--><!--[--><text x="50" y="250" class="svelte-capxo7">6</text><text x="250" y="450" class="svelte-capxo7">5</text><text x="350" y="50" class="svelte-capxo7">2</text><text x="350" y="150" class="svelte-capxo7">8</text><text x="50" y="350" class="svelte-capxo7">4</text><!--]--></svg><!----></figure></header> <section class="today" aria-labelledby="today"><div class="sheet-head svelte-ljjs36"><span class="rings svelte-ljjs36" aria-hidden="true"><i class="svelte-ljjs36"></i><i class="svelte-ljjs36"></i></span> <p class="date svelte-ljjs36"><span class="weekday svelte-ljjs36"></span> <span class="day svelte-ljjs36"></span> <span class="month svelte-ljjs36"></span></p> <!--[-1--><!--]--></div><!----> <h2 id="today">Today's room</h2> <!--[-1--><p>One room a day, built around one named technique. The same room as in the app.</p> <p><a class="action" href="../shikaku/play/?daily">Enter today's room</a></p><!--]--></section> <section class="new" aria-labelledby="new"><h2 id="new">A new room</h2> <fieldset><legend>Size</legend> <div class="choices sizes"><!--[--><label><input type="radio" name="size" value="5" checked=""/> <span style="--n: 5">5×5</span></label><label><input type="radio" name="size" value="7"/> <span style="--n: 7">7×7</span></label><label class="app-only"><input type="radio" name="size" value="10"/> <span style="--n: 10">10×10</span></label><label class="app-only"><input type="radio" name="size" value="12"/> <span style="--n: 12">12×12</span></label><label class="app-only"><input type="radio" name="size" value="15"/> <span style="--n: 15">15×15</span></label><!--]--></div></fieldset> <fieldset><legend>Difficulty</legend> <div class="choices levels"><!--[--><label><input type="radio" name="tier" value="0" checked=""/> <span style="--level: 1; --levels: 5">Gentle</span></label><label><input type="radio" name="tier" value="1"/> <span style="--level: 2; --levels: 5">Steady</span></label><label><input type="radio" name="tier" value="2"/> <span style="--level: 3; --levels: 5">Sharp</span></label><label><input type="radio" name="tier" value="3"/> <span style="--level: 4; --levels: 5">Deep</span></label><label><input type="radio" name="tier" value="4"/> <span style="--level: 5; --levels: 5">Severe</span></label><!--]--></div></fieldset> <!--[-1--><p><button class="action">Lay out a new room</button> <!--[-1--><!--]--></p><!--]--> <!--[-1--><!--]--></section> <section class="rules" aria-labelledby="rules"><h2 id="rules">The rules</h2> <ol><li>Every rectangle holds exactly one number.</li> <li>The number is the rectangle's area in cells.</li> <li>Rectangles never overlap, and no cell is left over.</li></ol> <p class="how"><strong>To play:</strong> Drag to draw a rectangle. Tap one to lift it. Drawing over a rectangle
+			replaces it. With a keyboard: arrow keys, Space to start and to lay, Backspace to lift.</p></section> <section class="techniques" aria-labelledby="techniques"><h2 id="techniques">The techniques</h2> <p>The solver that builds each room knows 7 named techniques, listed
+		here in the order it reaches for them. A room is kept only if they are enough to finish
+		it.</p> <ol class="tags svelte-1m192b4"><!--[--><li style="--sway: -1" class="svelte-1m192b4"><span class="no svelte-1m192b4">1</span> <strong class="svelte-1m192b4">Ones</strong> <!--[0--><span class="what svelte-1m192b4">A 1 is its own mat</span><!--]--></li><li style="--sway: 1" class="svelte-1m192b4"><span class="no svelte-1m192b4">2</span> <strong class="svelte-1m192b4">Prime Strips</strong> <!--[0--><span class="what svelte-1m192b4">Primes are strips</span><!--]--></li><li style="--sway: -1" class="svelte-1m192b4"><span class="no svelte-1m192b4">3</span> <strong class="svelte-1m192b4">Only Fit</strong> <!--[0--><span class="what svelte-1m192b4">One fit left</span><!--]--></li><li style="--sway: 1" class="svelte-1m192b4"><span class="no svelte-1m192b4">4</span> <strong class="svelte-1m192b4">Common Ground</strong> <!--[0--><span class="what svelte-1m192b4">Every fit shares cells</span><!--]--></li><li style="--sway: -1" class="svelte-1m192b4"><span class="no svelte-1m192b4">5</span> <strong class="svelte-1m192b4">Lone Reacher</strong> <!--[0--><span class="what svelte-1m192b4">Only one clue reaches</span><!--]--></li><li style="--sway: 1" class="svelte-1m192b4"><span class="no svelte-1m192b4">6</span> <strong class="svelte-1m192b4">No Orphans</strong> <!--[0--><span class="what svelte-1m192b4">Don't strand a cell</span><!--]--></li><li style="--sway: -1" class="svelte-1m192b4"><span class="no svelte-1m192b4">7</span> <strong class="svelte-1m192b4">Count the Room</strong> <!--[0--><span class="what svelte-1m192b4">The areas don't add up</span><!--]--></li><!--]--></ol></section> <section class="questions" aria-labelledby="questions"><h2 id="questions">Questions</h2> <div class="answers svelte-1m192b4"><!--[--><div><h3 class="svelte-1m192b4">Do I ever have to guess in Shikaku?</h3> <p class="svelte-1m192b4">No. Every room is proved to have exactly one solution before it reaches you, and each step can be reasoned out.</p></div><div><h3 class="svelte-1m192b4">Is Shikaku free to play here?</h3> <p class="svelte-1m192b4">Yes. Today's room and new 5×5 and 7×7 rooms at every difficulty are free, with no account and no ads. The 10×10 and 12×12 rooms, the lessons, the drills and the hints are in Just Shikaku, the app.</p></div><div><h3 class="svelte-1m192b4">Is today's room the same as in the app?</h3> <p class="svelte-1m192b4">Yes. The daily room is made from the date, so this site and the app serve the same one.</p></div><!--]--></div></section> <nav class="street svelte-1m192b4" aria-labelledby="street"><h2 id="street">Along the street</h2> <ul class="svelte-1m192b4"><!--[--><li style="--cloth: #f2f3ee; --print: #3b5ba5; --curtain-ink: #2b3240" class="svelte-1m192b4"><a href="../kakuro/" data-vt-cloth="kakuro" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="kakuro">加算クロス</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[2--><path pathLength="1" d="M8 8h40v40H8zM8 8l40 40M48 8h44v40H48M8 48v44h40V48M70 8v40M8 70h40"></path><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Kakuro</span> <span class="what svelte-1m192b4">Learn the crossword of sums</span></a></li><li style="--cloth: #1b426d; --print: #8fc0b8; --curtain-ink: #f4f7f8" class="svelte-1m192b4"><a href="../hashi/" data-vt-cloth="hashi" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="hashi">橋</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[1--><circle pathLength="1" cx="22" cy="26" r="13"></circle><circle pathLength="1" cx="78" cy="26" r="13"></circle><circle pathLength="1" cx="78" cy="76" r="13"></circle><path pathLength="1" d="M35 22h30M35 30h30M78 39v24"></path><path pathLength="1" d="M6 70q8-9 16 0t16 0 16 0M6 84q8-9 16 0t16 0 16 0"></path><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Hashi</span> <span class="what svelte-1m192b4">Learn to build the bridges</span></a></li><li style="--cloth: #26262b; --print: #b8863b; --curtain-ink: #f7f6f4" class="svelte-1m192b4"><a href="../numeriqo/" data-vt-cloth="numeriqo" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="numeriqo">計算</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[3--><path pathLength="1" class="thin svelte-12i36vg" d="M8 36h84M8 64h84M36 8v84M64 8v84"></path><path pathLength="1" class="heavy svelte-12i36vg" d="M8 8h56v28H36v28H8z"></path><path pathLength="1" d="M8 8h84v84H8z"></path><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Keisan</span> <span class="what svelte-1m192b4">Cages, sums and a Latin square</span></a></li><li style="--cloth: #c98a1b; --print: #233a5e; --curtain-ink: #1b2c49" class="svelte-1m192b4"><a href="../nurikabe/" data-vt-cloth="nurikabe" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="nurikabe">ぬりかべ</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[4--><path class="solid svelte-12i36vg" d="M8 8h28v28H8zM64 8h28v28H64zM36 36h28v28H36zM64 36h28v28H64zM8 64h28v28H8zM36 64h28v28H36z"></path><path pathLength="1" d="M8 8h84v84H8z"></path><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Nurikabe</span> <span class="what svelte-1m192b4">Paint the sea, find islands</span></a></li><li style="--cloth: #b9d3b4; --print: #2b5a41; --curtain-ink: #1c2620" class="svelte-1m192b4"><a href="../takegaki/" data-vt-cloth="takegaki" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="takegaki">竹垣</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[5--><path pathLength="1" d="M4 34h92M4 66h92M22 8v84M50 8v84M78 8v84"></path><path class="heavy svelte-12i36vg" d="M17 29l10 10M27 29l-10 10M45 61l10 10M55 61l-10 10M73 29l10 10M83 29l-10 10"></path><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Takegaki</span> <span class="what svelte-1m192b4">Draw one loop, count the sides</span></a></li><li style="--cloth: #e3bb72; --print: #7a5524; --curtain-ink: #15120f" class="svelte-1m192b4"><a href="../masyu/" data-vt-cloth="masyu" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="masyu">ましゅ</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[-1--><path pathLength="1" class="thin svelte-12i36vg" d="M8 22h84M8 50h84M8 78h84M22 8v84M50 8v84M78 8v84"></path><path pathLength="1" class="heavy svelte-12i36vg" d="M22 78V22h56v28H50v28z"></path><circle pathLength="1" class="solid svelte-12i36vg" cx="22" cy="22" r="10"></circle><circle pathLength="1" class="hollow svelte-12i36vg" cx="78" cy="36" r="10"></circle><circle pathLength="1" class="hollow svelte-12i36vg" cx="36" cy="78" r="10"></circle><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Masyu</span> <span class="what svelte-1m192b4">One loop through every pearl</span></a></li><!--]--></ul></nav><!----> <section class="app" aria-labelledby="app"><h2 id="app">In the app</h2> <p>Seven named techniques, each with its own lesson. Hints that name the technique and draw the
+			argument on your board. 10×10 and 12×12 rooms, timed drills, and a replay that grades every
+			rectangle you laid. One purchase, no ads.</p> <p><a href="https://apps.apple.com/app/id6801529551" rel="external">Just Shikaku on the App Store</a></p></section><!----></main></div><!--]--><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_r9mg8i = {
+						base: new URL("..", location).pathname.slice(0, -1),
+						version: "1795268389571"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					import("../_app/immutable/entry/start.C4Qe8y6_.js").then(async (kit) => {
+						kit.init(__sveltekit_r9mg8i);
+						const app = await import("../_app/immutable/entry/app.C12vTLos.js");
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+
+					if ('serviceWorker' in navigator) {
+						const script_url = '../service-worker.js';
+						const policy = globalThis?.window?.trustedTypes?.createPolicy(
+							'sveltekit-trusted-url',
+							{ createScriptURL(url) { return url; } }
+						);
+						const sanitised = policy?.createScriptURL(script_url) ?? script_url;
+						addEventListener('load', function () {
+							navigator.serviceWorker.register(sanitised, { type: 'module' });
+						});
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>

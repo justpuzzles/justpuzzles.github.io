@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+		<link rel="apple-touch-icon" href="/icon-192.png" />
+		<meta name="theme-color" content="#e8e7e1" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#1b1c1d" media="(prefers-color-scheme: dark)" />
+		<!-- Before the first paint: the street's sky for this hour (site/sky.ts, which
+		     sky.test.ts holds this copy to), and whether today's sway has played. -->
+		<script>
+			(() => {
+				const d = new Date();
+				const doy = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
+				const swing = 1.25 * Math.cos((2 * Math.PI * (doy - 172)) / 365);
+				const set = 17.75 + swing;
+				const rise = 5.6 - swing;
+				const h = d.getHours() + d.getMinutes() / 60;
+				document.documentElement.dataset.sky =
+					h >= rise - 0.75 && h < rise + 0.75
+						? 'dawn'
+						: h >= rise + 0.75 && h < set - 1.25
+							? 'day'
+							: h >= set - 1.25 && h < set
+								? 'golden'
+								: h >= set && h < set + 1
+									? 'dusk'
+									: 'night';
+				try {
+					const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+					if (localStorage.getItem('street.swayed') === day)
+						document.documentElement.dataset.swayed = '';
+				} catch {}
+			})();
+		</script>
+		<link href="/_app/immutable/entry/start.C4Qe8y6_.js" rel="modulepreload">
+		<link href="/_app/immutable/entry/payload.DSmR2FwN.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/BaNbYf_w.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/mCYarlsd.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/C0ebzSog.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/c-OWawv7.js" rel="modulepreload">
+		<link href="/_app/immutable/entry/app.C12vTLos.js" rel="modulepreload">
+		<link href="/_app/immutable/nodes/0.B7YyF8WG.js" rel="modulepreload">
+		<link href="/_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
+		
+		<link href="/_app/immutable/assets/0.B710XZHr.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<script>
+				{
+					__sveltekit_r9mg8i = {
+						base: "",
+						version: "1795268389571"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					import("/_app/immutable/entry/start.C4Qe8y6_.js").then(async (kit) => {
+						kit.init(__sveltekit_r9mg8i);
+						const app = await import("/_app/immutable/entry/app.C12vTLos.js");
+						kit.start(app, element);
+					});
+
+					if ('serviceWorker' in navigator) {
+						const script_url = '/service-worker.js';
+						const policy = globalThis?.window?.trustedTypes?.createPolicy(
+							'sveltekit-trusted-url',
+							{ createScriptURL(url) { return url; } }
+						);
+						const sanitised = policy?.createScriptURL(script_url) ?? script_url;
+						addEventListener('load', function () {
+							navigator.serviceWorker.register(sanitised, { type: 'module' });
+						});
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>

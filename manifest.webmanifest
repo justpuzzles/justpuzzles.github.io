@@ -1,0 +1,17 @@
+{
+	"id": ".",
+	"name": "Just Puzzles",
+	"short_name": "Just Puzzles",
+	"description": "Logic puzzles that teach you to solve them.",
+	"start_url": ".",
+	"scope": ".",
+	"display": "standalone",
+	"background_color": "#e8e7e1",
+	"theme_color": "#e8e7e1",
+	"icons": [
+		{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+		{ "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+		{ "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+		{ "src": "icon-192.png", "sizes": "192x192", "type": "image/png" }
+	]
+}

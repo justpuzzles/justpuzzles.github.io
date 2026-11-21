@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="text-scale" content="scale" />
+		<link rel="icon" href="../icon.svg" type="image/svg+xml" />
+		<link rel="manifest" href="../manifest.webmanifest" />
+		<link rel="apple-touch-icon" href="../icon-192.png" />
+		<meta name="theme-color" content="#e8e7e1" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#1b1c1d" media="(prefers-color-scheme: dark)" />
+		<!-- Before the first paint: the street's sky for this hour (site/sky.ts, which
+		     sky.test.ts holds this copy to), and whether today's sway has played. -->
+		<script>
+			(() => {
+				const d = new Date();
+				const doy = Math.floor((d - new Date(d.getFullYear(), 0, 0)) / 86400000);
+				const swing = 1.25 * Math.cos((2 * Math.PI * (doy - 172)) / 365);
+				const set = 17.75 + swing;
+				const rise = 5.6 - swing;
+				const h = d.getHours() + d.getMinutes() / 60;
+				document.documentElement.dataset.sky =
+					h >= rise - 0.75 && h < rise + 0.75
+						? 'dawn'
+						: h >= rise + 0.75 && h < set - 1.25
+							? 'day'
+							: h >= set - 1.25 && h < set
+								? 'golden'
+								: h >= set && h < set + 1
+									? 'dusk'
+									: 'night';
+				try {
+					const day = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+					if (localStorage.getItem('street.swayed') === day)
+						document.documentElement.dataset.swayed = '';
+				} catch {}
+			})();
+		</script>
+		<link href="../_app/immutable/entry/start.C4Qe8y6_.js" rel="modulepreload">
+		<link href="../_app/immutable/entry/payload.DSmR2FwN.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BaNbYf_w.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/mCYarlsd.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/C0ebzSog.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/c-OWawv7.js" rel="modulepreload">
+		<link href="../_app/immutable/entry/app.C12vTLos.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/0.B7YyF8WG.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
+		<link href="../_app/immutable/nodes/3.6mKJZsjj.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/DszSLjHQ.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/p55Mk47K.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BQooTMTs.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/C0cw1VRu.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/7hH7k1zt.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/BLnTfkWo.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/Dj-8XG1E.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/jPiVIS_o.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CyU6eSfR.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/D2WBfrP5.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CcEfN7V5.js" rel="modulepreload">
+		<link href="../_app/immutable/chunks/CTpzbiFm.js" rel="modulepreload">
+		<!--1tqushu--><meta name="description" content="Play Kakuro free in your browser: a daily board and new boards at every difficulty, with pencil notes. A crossword of sums where no digit repeats in a run. Also known as Cross Sums."/> <link rel="canonical" href="https://justpuzzles.app/kakuro/"/> <!--[-1--><!--]--> <!--[0--><meta name="apple-itunes-app" content="app-id=6796701026"/><!--]--> <meta property="og:site_name" content="Just Puzzles"/> <meta property="og:locale" content="en"/> <meta property="og:type" content="website"/> <meta property="og:title" content="Kakuro puzzles online, free · Just Kakuro"/> <meta property="og:description" content="Play Kakuro free in your browser: a daily board and new boards at every difficulty, with pencil notes. A crossword of sums where no digit repeats in a run. Also known as Cross Sums."/> <meta property="og:url" content="https://justpuzzles.app/kakuro/"/> <meta property="og:image" content="https://justpuzzles.app/og/kakuro.png"/> <meta property="og:image:width" content="1200"/> <meta property="og:image:height" content="630"/> <meta property="og:image:alt" content="Just Kakuro. Every run of white cells adds up to its clue, and no digit repeats inside a run."/> <meta name="twitter:card" content="summary_large_image"/> <!----><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["VideoGame","WebApplication"],"name":"Just Kakuro","alternateName":["Cross Sums"],"url":"https://justpuzzles.app/kakuro/","description":"Every run of white cells adds up to its clue, and no digit repeats inside a run.","image":"https://justpuzzles.app/og/kakuro.png","genre":"Puzzle","applicationCategory":"GameApplication","operatingSystem":"Any","gamePlatform":"Web browser","playMode":"SinglePlayer","inLanguage":"en","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Person","name":"Kai Kunze"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do I ever have to guess in Kakuro?","acceptedAnswer":{"@type":"Answer","text":"No. Every board is proved to have exactly one solution before it reaches you, and each step can be reasoned out."}},{"@type":"Question","name":"Is Kakuro free to play here?","acceptedAnswer":{"@type":"Answer","text":"Yes. Today's board and new small and medium boards at every difficulty, with pencil notes, are free, with no account and no ads. Large boards, the lessons, the drills and the hints are in Just Kakuro, the app."}},{"@type":"Question","name":"Is today's board the same as in the app?","acceptedAnswer":{"@type":"Answer","text":"Yes. The daily board is made from the date, so this site and the app serve the same one."}}]}]}</script><!----><!----><title>Kakuro puzzles online, free · Just Kakuro</title>
+		<link href="../_app/immutable/assets/0.B710XZHr.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/stamps.BW8yk3G4.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/cloth.CkHORVAO.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/game.Gdy_6Bp8.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/game.DVpsGMIn.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/Goban.nELfiKuj.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/game.BWvHhVnU.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/game.CcTSazRz.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/3.E9GUcVuY.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[-1--><!--[--><!----> <!--[2--><div class="washi"><div class="cloth-backdrop" style="view-transition-name: cloth-kakuro" aria-hidden="true"></div> <main class="game-home"><a class="back" href="../">Just Puzzles</a> <header class="hero"><span class="lettering vertical long" lang="ja" aria-hidden="true" style="view-transition-name: letter-kakuro">加算クロス</span> <div class="sign"><h1>Just Kakuro</h1> <p class="rule">A crossword with sums instead of words. Every run of white cells adds up to its clue, and no digit repeats inside a run.</p></div> <figure class="example"><svg viewBox="0 0 300 300" role="img" aria-label="A finished board: 1 and 2 over 3 and 5"><rect class="ground svelte-vgvkaz" width="300" height="300" rx="12"></rect><!--[--><!--[-1--><rect class="block svelte-vgvkaz" x="1" y="1" width="98" height="98"></rect><!--]--><!--[1--><g class="clue svelte-vgvkaz"><rect x="101" y="1" width="98" height="98" class="svelte-vgvkaz"></rect><line x1="104" y1="4" x2="196" y2="96" class="svelte-vgvkaz"></line><!--[-1--><!--]--><!--[0--><!--[-1--><!--]--><text class="done svelte-vgvkaz" x="130" y="73" style="transform-origin: 130px 73px;">4</text><!--]--></g><!--]--><!--[1--><g class="clue svelte-vgvkaz"><rect x="201" y="1" width="98" height="98" class="svelte-vgvkaz"></rect><line x1="204" y1="4" x2="296" y2="96" class="svelte-vgvkaz"></line><!--[-1--><!--]--><!--[0--><!--[-1--><!--]--><text class="done svelte-vgvkaz" x="230" y="73" style="transform-origin: 230px 73px;">7</text><!--]--></g><!--]--><!--[1--><g class="clue svelte-vgvkaz"><rect x="1" y="101" width="98" height="98" class="svelte-vgvkaz"></rect><line x1="4" y1="104" x2="96" y2="196" class="svelte-vgvkaz"></line><!--[0--><!--[-1--><!--]--><text class="done svelte-vgvkaz" x="70" y="131" style="transform-origin: 70px 131px;">3</text><!--]--><!--[-1--><!--]--></g><!--]--><!--[0--><g class="white svelte-vgvkaz"><rect x="101" y="101" width="98" height="98" class="svelte-vgvkaz"></rect><!--[-1--><!--]--><!--[0--><text class="digit svelte-vgvkaz" x="150" y="152">1</text><!--]--></g><!--]--><!--[0--><g class="white svelte-vgvkaz"><rect x="201" y="101" width="98" height="98" class="svelte-vgvkaz"></rect><!--[-1--><!--]--><!--[0--><text class="digit svelte-vgvkaz" x="250" y="152">2</text><!--]--></g><!--]--><!--[1--><g class="clue svelte-vgvkaz"><rect x="1" y="201" width="98" height="98" class="svelte-vgvkaz"></rect><line x1="4" y1="204" x2="96" y2="296" class="svelte-vgvkaz"></line><!--[0--><!--[-1--><!--]--><text class="done svelte-vgvkaz" x="70" y="231" style="transform-origin: 70px 231px;">8</text><!--]--><!--[-1--><!--]--></g><!--]--><!--[0--><g class="white svelte-vgvkaz"><rect x="101" y="201" width="98" height="98" class="svelte-vgvkaz"></rect><!--[-1--><!--]--><!--[0--><text class="digit svelte-vgvkaz" x="150" y="252">3</text><!--]--></g><!--]--><!--[0--><g class="white svelte-vgvkaz"><rect x="201" y="201" width="98" height="98" class="svelte-vgvkaz"></rect><!--[-1--><!--]--><!--[0--><text class="digit svelte-vgvkaz" x="250" y="252">5</text><!--]--></g><!--]--><!--]--><!--[-1--><!--]--><!----></svg><!----></figure></header> <section class="today" aria-labelledby="today"><div class="sheet-head svelte-ljjs36"><span class="rings svelte-ljjs36" aria-hidden="true"><i class="svelte-ljjs36"></i><i class="svelte-ljjs36"></i></span> <p class="date svelte-ljjs36"><span class="weekday svelte-ljjs36"></span> <span class="day svelte-ljjs36"></span> <span class="month svelte-ljjs36"></span></p> <!--[-1--><!--]--></div><!----> <h2 id="today">Today's board</h2> <!--[-1--><p>One board a day, the same one as in the app.</p> <p><a class="action" href="../kakuro/play/?daily">Play today's board</a></p><!--]--></section> <section class="new" aria-labelledby="new"><h2 id="new">A new board</h2> <fieldset><legend>Size</legend> <div class="choices sizes"><!--[--><label><input type="radio" name="size" value="small" checked=""/> <span style="--n: 7">Small</span></label><label><input type="radio" name="size" value="medium"/> <span style="--n: 9">Medium</span></label><label class="app-only"><input type="radio" name="size" value="large"/> <span style="--n: 11">Large</span></label><!--]--></div></fieldset> <fieldset><legend>Difficulty</legend> <div class="choices levels"><!--[--><label><input type="radio" name="difficulty" value="0" checked=""/> <span style="--level: 1; --levels: 3">Easy</span></label><label><input type="radio" name="difficulty" value="1"/> <span style="--level: 2; --levels: 3">Medium</span></label><label><input type="radio" name="difficulty" value="2"/> <span style="--level: 3; --levels: 3">Hard</span></label><!--]--></div></fieldset> <!--[-1--><p><button class="action">Make a new board</button> <!--[-1--><!--]--></p><!--]--> <!--[-1--><!--]--></section> <section class="rules" aria-labelledby="rules"><h2 id="rules">The rules</h2> <ol><li>Each white cell takes a digit from 1 to 9.</li> <li>A row or column of white cells is a run. Its clue is the run's total: top right for across,
+				bottom left for down.</li> <li>A digit never repeats inside a run.</li></ol> <p class="how"><strong>To play:</strong> Tap a cell, then a digit. Notes pencils in the digits a cell could still
+			take, and a digit you place leaves the notes of its runs. Tap a clue to see the digit sets that
+			still fit it. With a keyboard: arrow keys move, digits enter, Shift with a digit makes a note, Backspace
+			clears, C shows the sets, Command or Control with Z undoes.</p></section> <section class="techniques" aria-labelledby="techniques"><h2 id="techniques">The techniques</h2> <p>The solver that builds each board knows 8 named techniques, listed
+		here in the order it reaches for them. A board is kept only if they are enough to finish
+		it.</p> <ol class="tags svelte-1m192b4 named"><!--[--><li style="--sway: -1" class="svelte-1m192b4"><span class="no svelte-1m192b4">1</span> <strong class="svelte-1m192b4">No Repeats</strong> <!--[-1--><!--]--></li><li style="--sway: 1" class="svelte-1m192b4"><span class="no svelte-1m192b4">2</span> <strong class="svelte-1m192b4">Magic Blocks</strong> <!--[-1--><!--]--></li><li style="--sway: -1" class="svelte-1m192b4"><span class="no svelte-1m192b4">3</span> <strong class="svelte-1m192b4">Cross Reference</strong> <!--[-1--><!--]--></li><li style="--sway: 1" class="svelte-1m192b4"><span class="no svelte-1m192b4">4</span> <strong class="svelte-1m192b4">High &amp; Low</strong> <!--[-1--><!--]--></li><li style="--sway: -1" class="svelte-1m192b4"><span class="no svelte-1m192b4">5</span> <strong class="svelte-1m192b4">Last Candidate</strong> <!--[-1--><!--]--></li><li style="--sway: 1" class="svelte-1m192b4"><span class="no svelte-1m192b4">6</span> <strong class="svelte-1m192b4">Only Place</strong> <!--[-1--><!--]--></li><li style="--sway: -1" class="svelte-1m192b4"><span class="no svelte-1m192b4">7</span> <strong class="svelte-1m192b4">Combination Logic</strong> <!--[-1--><!--]--></li><li style="--sway: 1" class="svelte-1m192b4"><span class="no svelte-1m192b4">8</span> <strong class="svelte-1m192b4">Sum Arithmetic</strong> <!--[-1--><!--]--></li><!--]--></ol></section> <section class="questions" aria-labelledby="questions"><h2 id="questions">Questions</h2> <div class="answers svelte-1m192b4"><!--[--><div><h3 class="svelte-1m192b4">Do I ever have to guess in Kakuro?</h3> <p class="svelte-1m192b4">No. Every board is proved to have exactly one solution before it reaches you, and each step can be reasoned out.</p></div><div><h3 class="svelte-1m192b4">Is Kakuro free to play here?</h3> <p class="svelte-1m192b4">Yes. Today's board and new small and medium boards at every difficulty, with pencil notes, are free, with no account and no ads. Large boards, the lessons, the drills and the hints are in Just Kakuro, the app.</p></div><div><h3 class="svelte-1m192b4">Is today's board the same as in the app?</h3> <p class="svelte-1m192b4">Yes. The daily board is made from the date, so this site and the app serve the same one.</p></div><!--]--></div></section> <nav class="street svelte-1m192b4" aria-labelledby="street"><h2 id="street">Along the street</h2> <ul class="svelte-1m192b4"><!--[--><li style="--cloth: #3e5540; --print: #93a583; --curtain-ink: #f2eada" class="svelte-1m192b4"><a href="../shikaku/" data-vt-cloth="shikaku" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="shikaku">四角</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[0--><path pathLength="1" d="M8 8h84v84H8zM8 50h42V8M50 36h42M50 50v42M50 64h42M29 50v42"></path><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Shikaku</span> <span class="what svelte-1m192b4">Divide the room into rectangles</span></a></li><li style="--cloth: #1b426d; --print: #8fc0b8; --curtain-ink: #f4f7f8" class="svelte-1m192b4"><a href="../hashi/" data-vt-cloth="hashi" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="hashi">橋</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[1--><circle pathLength="1" cx="22" cy="26" r="13"></circle><circle pathLength="1" cx="78" cy="26" r="13"></circle><circle pathLength="1" cx="78" cy="76" r="13"></circle><path pathLength="1" d="M35 22h30M35 30h30M78 39v24"></path><path pathLength="1" d="M6 70q8-9 16 0t16 0 16 0M6 84q8-9 16 0t16 0 16 0"></path><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Hashi</span> <span class="what svelte-1m192b4">Learn to build the bridges</span></a></li><li style="--cloth: #26262b; --print: #b8863b; --curtain-ink: #f7f6f4" class="svelte-1m192b4"><a href="../numeriqo/" data-vt-cloth="numeriqo" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="numeriqo">計算</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[3--><path pathLength="1" class="thin svelte-12i36vg" d="M8 36h84M8 64h84M36 8v84M64 8v84"></path><path pathLength="1" class="heavy svelte-12i36vg" d="M8 8h56v28H36v28H8z"></path><path pathLength="1" d="M8 8h84v84H8z"></path><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Keisan</span> <span class="what svelte-1m192b4">Cages, sums and a Latin square</span></a></li><li style="--cloth: #c98a1b; --print: #233a5e; --curtain-ink: #1b2c49" class="svelte-1m192b4"><a href="../nurikabe/" data-vt-cloth="nurikabe" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="nurikabe">ぬりかべ</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[4--><path class="solid svelte-12i36vg" d="M8 8h28v28H8zM64 8h28v28H64zM36 36h28v28H36zM64 36h28v28H64zM8 64h28v28H8zM36 64h28v28H36z"></path><path pathLength="1" d="M8 8h84v84H8z"></path><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Nurikabe</span> <span class="what svelte-1m192b4">Paint the sea, find islands</span></a></li><li style="--cloth: #b9d3b4; --print: #2b5a41; --curtain-ink: #1c2620" class="svelte-1m192b4"><a href="../takegaki/" data-vt-cloth="takegaki" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="takegaki">竹垣</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[5--><path pathLength="1" d="M4 34h92M4 66h92M22 8v84M50 8v84M78 8v84"></path><path class="heavy svelte-12i36vg" d="M17 29l10 10M27 29l-10 10M45 61l10 10M55 61l-10 10M73 29l10 10M83 29l-10 10"></path><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Takegaki</span> <span class="what svelte-1m192b4">Draw one loop, count the sides</span></a></li><li style="--cloth: #e3bb72; --print: #7a5524; --curtain-ink: #15120f" class="svelte-1m192b4"><a href="../masyu/" data-vt-cloth="masyu" class="svelte-1m192b4"><span class="folds svelte-1m192b4" data-folds="" aria-hidden="true"></span> <span class="letters svelte-1m192b4" lang="ja" aria-hidden="true" data-vt-letter="masyu">ましゅ</span> <span class="motif svelte-1m192b4"><svg class="motif svelte-12i36vg" viewBox="0 0 100 100" aria-hidden="true"><!--[-1--><path pathLength="1" class="thin svelte-12i36vg" d="M8 22h84M8 50h84M8 78h84M22 8v84M50 8v84M78 8v84"></path><path pathLength="1" class="heavy svelte-12i36vg" d="M22 78V22h56v28H50v28z"></path><circle pathLength="1" class="solid svelte-12i36vg" cx="22" cy="22" r="10"></circle><circle pathLength="1" class="hollow svelte-12i36vg" cx="78" cy="36" r="10"></circle><circle pathLength="1" class="hollow svelte-12i36vg" cx="36" cy="78" r="10"></circle><!--]--></svg><!----></span> <span class="label svelte-1m192b4">Masyu</span> <span class="what svelte-1m192b4">One loop through every pearl</span></a></li><!--]--></ul></nav><!----> <section class="app" aria-labelledby="app"><h2 id="app">In the app</h2> <p>Eight named techniques, from No Repeats and Magic Blocks to Sum Arithmetic, each with its own
+			lesson and practice drills. Hints that teach the argument instead of giving the answer. Large
+			boards and your statistics. One purchase, no ads.</p> <p><a href="https://apps.apple.com/app/id6796701026" rel="external">Just Kakuro on the App Store</a></p></section><!----></main></div><!--]--><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_r9mg8i = {
+						base: new URL("..", location).pathname.slice(0, -1),
+						version: "1795268389571"
+					};
+
+					const element = document.currentScript.parentElement;
+
+					import("../_app/immutable/entry/start.C4Qe8y6_.js").then(async (kit) => {
+						kit.init(__sveltekit_r9mg8i);
+						const app = await import("../_app/immutable/entry/app.C12vTLos.js");
+						kit.start(app, element, {
+							node_ids: [0, 3],
+							data: [null,null],
+							form: null,
+							error: null
+						});
+					});
+
+					if ('serviceWorker' in navigator) {
+						const script_url = '../service-worker.js';
+						const policy = globalThis?.window?.trustedTypes?.createPolicy(
+							'sveltekit-trusted-url',
+							{ createScriptURL(url) { return url; } }
+						);
+						const sanitised = policy?.createScriptURL(script_url) ?? script_url;
+						addEventListener('load', function () {
+							navigator.serviceWorker.register(sanitised, { type: 'module' });
+						});
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>
